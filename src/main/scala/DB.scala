@@ -32,7 +32,7 @@ object DB extends App {
 
   val model = Await.result(db.run(driver.createModel(None, ignoreInvalidDefaults = false)(ExecutionContext.global).withPinnedSession), Duration.Inf)
 
-  // Remove create_date and update_date without Tables.scala
+  // Remove create_date and update_date from outputFile
   val ts = for {
     t <- model.tables.filter(_.name.table != "play_evolutions")
     c = t.columns.filter(_.name != "create_date").filter(_.name != "update_date")
