@@ -16,8 +16,8 @@ object DB extends App {
 
   import com.typesafe.config.ConfigFactory
 
-  val slickDriver = "slick.driver.PostgresDriver"
-  val jdbcDriver = "org.postgresql.Driver"
+  val slickDriver = "slick.driver.MySQLDriver"
+  val jdbcDriver = "com.mysql.jdbc.Driver"
   val dbSettingConf = ConfigFactory.load.getConfig("db_setting")
   val url = dbSettingConf.getString("url")
   val outputFolder = dbSettingConf.getString("outputFolder")
@@ -25,7 +25,7 @@ object DB extends App {
   val pkg = dbSettingConf.getString("pkg")
   val user = dbSettingConf.getString("user")
   val password = dbSettingConf.getString("password")
-  val driver: JdbcProfile = slick.driver.PostgresDriver
+  val driver: JdbcProfile = slick.driver.MySQLDriver
   val db = Database.forURL(url, driver = jdbcDriver, user = user, password = password)
   val model = Await.result(db.run(driver.createModel(None, ignoreInvalidDefaults = false)(ExecutionContext.global).withPinnedSession), Duration.Inf)
   // Remove create_date and update_date from outputFile

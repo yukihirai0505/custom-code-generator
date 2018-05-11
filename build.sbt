@@ -13,7 +13,7 @@ libraryDependencies ++= {
     "com.typesafe" % "config" % "1.3.1",
     "com.typesafe.slick" % "slick_2.11" % slickV,
     "com.typesafe.slick" % "slick-codegen_2.11" % slickV,
-    "org.postgresql" % "postgresql" % "9.4-1201-jdbc41",
+    "mysql" % "mysql-connector-java" % "5.1.38",
     "com.github.tototoshi" % "slick-joda-mapper_2.11" % slickJodaMapperV,
     "joda-time" % "joda-time" % jodaTimeV,
     "org.joda" % "joda-convert" % jodaConvertV
